@@ -147,7 +147,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         UxWeb\SweetAlert\SweetAlertServiceProvider::class,
-        Cardumen\ArgentinaProvinciasLocalidades\ArgentinaProvinciasLocalidades::class,
 
         /*
          * Package Service Providers...
