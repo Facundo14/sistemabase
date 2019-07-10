@@ -14,9 +14,6 @@
 <div class="box box-primary">
 	<div class="box-header">
 	  	<h3 class="box-title">Listado de usuarios</h3>
-	  	@if(auth()->user()->can('create'))
-	  		<a href="{{ route('admin.users.create') }}" class="btn btn-primary pull-right" title="Agregar nuevo usuario"><i class="fa fa-plus"></i> Crear</a>
-		@endif
 	</div>
 	<!-- /.box-header -->
 	<div class="box-body">
@@ -29,7 +26,9 @@
 	      <th>Avatar</th>
 	      <th>Roles</th>
 	      <th>Condición</th>
-	      <th>Acciones</th>
+	      <th>@can('create', $users->first() )
+			&nbsp;<a href="{{ route('admin.users.create') }}" class="btn btn-primary btn-xs" title="Agregar"><i class="fa fa-plus"></i></a>
+		  @endcan</th>
 	    </tr>
 	    </thead>
 	    <tbody>

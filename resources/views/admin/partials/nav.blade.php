@@ -26,6 +26,12 @@
                 </a>
               </li>
               @endcan
+              @can('view', new App\Pais)
+              <li class="treeview {{ setActiveRoute(['admin.paises.index', 'admin.paises.create']) }}">
+                <a href="{{ route('admin.paises.index') }}"><i class="fa fa-building-o"></i> <span>Pais</span>
+                </a>
+              </li>
+              @endcan
              <li class="treeview">
                 <a href="{{ route('admin.empresas.timelineshow') }}"><i class="fa fa-building-o"></i> <span>Linea de tiempo</span>
               </a>

@@ -42,6 +42,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
    //Route::get('empresas/timeline', 'EmpresaController@timeline')->name('admin.empresas.timeline');
    Route::get('empresas/timelineshow', 'EmpresaController@timelineshow')->name('admin.empresas.timelineshow');
 
+   //Paises rutas
+   Route::resource('paises', 'PaisController', ['except' => 'show', 'as' => 'admin']);
+
+   
+
 });
     // Authentication Routes...
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

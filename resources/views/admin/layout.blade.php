@@ -11,6 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>Sistema | Base</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- CSFR token for ajax call -->
+  <meta name="_token" content="{{ csrf_token() }}"/>
   <!-- Bootstrap 3.3.6 -->
   <link rel="stylesheet" href="{{ asset('/adminlte/bootstrap/css/bootstrap.min.css') }}">
   <!-- Font Awesome -->
