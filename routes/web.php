@@ -25,6 +25,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
    Route::get('/', 'AdminController@index')->name('inicio');
 
    Route::resource('users', 'UsersController', ['as' => 'admin']);
+   Route::put('users/{user}/activar', 'UsersController@activar')->name('admin.users.activar');
 
    Route::resource('roles', 'RolesController', ['except' => 'show', 'as' => 'admin']);
    Route::resource('permissions', 'PermissionsController', ['only' => ['index', 'edit', 'update'], 'as' => 'admin']);

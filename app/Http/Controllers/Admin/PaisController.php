@@ -14,8 +14,8 @@ class PaisController extends Controller
 {
     protected $rules =
     [
-        'name' => 'required|min:2|max:32|regex:/^[a-z ,.\'-]+$/i',
-        'shortname' => 'required|min:2|max:4|regex:/^[a-z ,.\'-]+$/i'
+        'name' => 'required|min:2|max:32',
+        'shortname' => 'required|min:2|max:4'
     ];
 
     /**
@@ -91,7 +91,16 @@ class PaisController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = Validator::make(Input::all(), $this->rules);
+        if ($validator->fails()) {
+            return Response::json(array('errors' => $validator->getMessageBag()->toArray()));
+        } else {
+            $pais = Pais::findOrFail($id);
+            $pais->name = $request->name;
+            $pais->shortname = $request->shortname;
+            $pais->save();
+            return response()->json($pais);
+        }
     }
 
     /**
@@ -100,8 +109,24 @@ class PaisController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Pais $pais)
     {
-        //
+        $this->authorize('delete', $pais);
+
+        try {
+            //se elimina el sector
+            
+            $pais->delete();
+
+            return redirect()->route('admin.paises.index')->with('flash', 'El rol ha sido eliminada con exito');
+        } catch (\Throwable $th) {
+            if ($th->getCode()==23000) {
+                return redirect()->route('admin.paises.index')->with('danger', 'No se puede eliminar, pertenece a otra tabla; Codigo de error: '.$th->getCode());
+            }
+            else {
+                return redirect()->route('admin.paises.index')->with('danger', 'hubo un error al eliminar '.$th->getMessage().'Codigo de error: '.$th->getCode());
+            }
+            
+        }
     }
 }

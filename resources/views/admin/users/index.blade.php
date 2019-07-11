@@ -39,10 +39,13 @@
 	    		<td>{{ $user->email }}</td>
 	    		<td><img width="50px" class="img-thumbnail" src="{{asset('img/'.$user->foto) }}"></img></td>
 	    		<td>{{ $user->getRoleNames()->implode(', ') }}</td>
-	    		<td>@if ($user->condicion == 1)
+	    		<td>@if ($user->condicion == true)
 						<a href="#" class="btn btn-success btn-xs" title="Activado"><i class="fa fa-check-circle"></i></a>
 	    			@else
-	    				<a href="#" class="btn btn-danger btn-xs" title="Desactivado"><i class="fa fa-remove"></i></a>
+						<form action="{{ route('admin.users.activar', $user) }}" method="POST" style="display: inline;" >
+							{{csrf_field()}} {{method_field('PUT')}}
+							<button title="Activar" class="btn btn-danger btn-xs" onclick="return confirm('Estas seguro de querer activar el usuario?')"><i class="fa fa-remove"></i></button>
+						</form>
 	    			@endif
 	    		</td>
 	    		<td>

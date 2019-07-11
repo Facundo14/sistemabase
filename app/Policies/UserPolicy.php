@@ -65,4 +65,17 @@ class UserPolicy
         return $authUser->id === $user->id
         || $authUser->hasPermissionTo('delete_usuarios');
     }
+
+    /**
+     * Determine whether the user can delete the model.
+     *
+     * @param  \App\User  $user
+     * @param  \App\User  $model
+     * @return mixed
+     */
+    public function activar(User $authUser, User $user)
+    {
+        return $authUser->id === $user->id
+        || $authUser->hasPermissionTo('activar_usuarios');
+    }
 }

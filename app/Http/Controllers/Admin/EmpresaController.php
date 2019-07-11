@@ -62,7 +62,17 @@ class EmpresaController extends Controller
         $this->validate($request, ['nombre' => 'required|min:3|max:255', 'email' => 'required|string|email|max:255|unique:empresas']);
 
         /*$post = Post::create($request->only('titulo'));*/
-        $empresa = Empresa::create($request->all());
+        $empresa = Empresa::create([
+            'nombre' => $request->nombre,
+            'leyenda' => $request->leyenda,
+            'leyenda_factura' => $request->leyenda_factura,
+            'cuit' => $request->cuit,
+            'direccion' => $request->direccion,
+            'telefono' => $request->telefono,
+            'email' => $request->email,
+            'responsable' => $request->responsable,
+            'user_id' => auth()->user()->id,
+            ]);
 
         return back()->withFlash('Creado correctamente');
     }
@@ -96,7 +106,17 @@ class EmpresaController extends Controller
         $this->validate($request, ['nombre' => 'required|min:3|max:255', 'email' => 'required', Rule::unique('empresa')->ignore($empresa->id)]);
 
         try {
-            $empresa->update($request->all());
+            $empresa->update([
+                'nombre' => $request->nombre,
+                'leyenda' => $request->leyenda,
+                'leyenda_factura' => $request->leyenda_factura,
+                'cuit' => $request->cuit,
+                'direccion' => $request->direccion,
+                'telefono' => $request->telefono,
+                'email' => $request->email,
+                'responsable' => $request->responsable,
+                'user_id' => auth()->user()->id,
+                ]);
 
             return redirect()->route('admin.empresas.index')->with('flash', 'ha sido modificado con exito');
 

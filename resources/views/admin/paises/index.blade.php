@@ -126,11 +126,69 @@
                             $('.errorShortname').text(data.errors.shortname);
                         }
                     } else {
-                        location.reload();
-                        toastr.success('Guardado!', 'Success Alert', {timeOut: 5000});
+                        toastr.success('Pais guardado!', 'Confirmado!', {
+                            timeOut: 1000,
+                            fadeOut: 1000,
+                            onHidden: function () {
+                                    window.location.reload();
+                                }
+                            });
+                            
                         
                     }
                 },
+            });
+        });
+
+        // Edit a post
+        $(document).on('click', '.edit-modal', function() {
+            $('.modal-title').text('Edit');
+            $('#id_edit').val($(this).data('id'));
+            $('#name_edit').val($(this).data('name'));
+            $('#shortname_edit').val($(this).data('shortname'));
+            id = $('#id_edit').val();
+            action = $(formIdEdit).attr('action');
+            $('#editModal').modal('show');
+        });
+        $('.modal-footer').on('click', '.edit', function() {
+            $.ajax({
+                type: 'PUT',
+                url: action,
+                data: {
+                    '_token': $('input[name=_token]').val(),
+                    'id': $("#id_edit").val(),
+                    'name': $('#name_edit').val(),
+                    'shortname': $('#shortname_edit').val()
+                },
+                success: function(data) {
+                    $('.errorName').addClass('hidden');
+                    $('.errorShortname').addClass('hidden');
+
+                    if ((data.errors)) {
+                        setTimeout(function () {
+                            $('#editModal').modal('show');
+                            toastr.error('Validation error!', 'Error Alert', {timeOut: 5000});
+                        }, 500);
+
+                        if (data.errors.name) {
+                            $('.errorName').removeClass('hidden');
+                            $('.errorName').text(data.errors.name);
+                        }
+                        if (data.errors.shortname) {
+                            $('.errorShortname').removeClass('hidden');
+                            $('.errorShortname').text(data.errors.shortname);
+                        }
+                    } else {
+                        toastr.success('Pais editado!', 'Confirmado!', {
+                            timeOut: 1000,
+                            fadeOut: 1000,
+                            onHidden: function () {
+                                    window.location.reload();
+                                }
+                            });
+
+                       }
+                }
             });
         });
 
