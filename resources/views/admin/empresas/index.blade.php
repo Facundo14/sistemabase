@@ -49,6 +49,7 @@
 <script>
   $(function () {
     $("#empresa-table").DataTable({
+        "aoColumnDefs": [{ 'bSortable': false, 'aTargets': [ 3 ] }],
     	"language": {
 		    "sProcessing":     "Procesando...",
 		    "sLengthMenu":     "Mostrar _MENU_ registros",
@@ -77,17 +78,7 @@
   });
 
 </script>
-{{--
-@if (count($errors) > 0)
-    <script>
-        $( document ).ready(function() {
-            $('#addModal').modal('show');
-        });
-    </script>
-@endif --}}
-<script>
-    leantony.modal({});
-</script>
+
 
 
 

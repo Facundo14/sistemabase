@@ -74,7 +74,7 @@ class EmpresaController extends Controller
             'user_id' => auth()->user()->id,
             ]);
 
-        return back()->withFlash('Creado correctamente');
+            return redirect()->route('admin.empresas.index')->with('flash', 'ha sido creado con exito');
     }
 
     /**
@@ -115,7 +115,6 @@ class EmpresaController extends Controller
                 'telefono' => $request->telefono,
                 'email' => $request->email,
                 'responsable' => $request->responsable,
-                'user_id' => auth()->user()->id,
                 ]);
 
             return redirect()->route('admin.empresas.index')->with('flash', 'ha sido modificado con exito');
