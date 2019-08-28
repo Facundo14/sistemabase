@@ -97,6 +97,28 @@ class UserTableSeeder extends Seeder
             'name' => 'delete_empresas',
             'display_name' => 'Eliminar empresas'
         ]);
+//
+        //Permisos Categoria
+        //
+        $verCategoriaPermission = Permission::create([
+            'name' => 'view_categorias',
+            'display_name' => 'Ver categorias'
+        ]);
+
+        $CrearCategoriaPermission = Permission::create([
+            'name' => 'create_categorias',
+            'display_name' => 'Crear categorias'
+        ]);
+
+        $ActualizarCategoriaPermission = Permission::create([
+            'name' => 'edit_categorias',
+            'display_name' => 'Editar categorias'
+        ]);
+
+        $EliminarCategoriaPermission = Permission::create([
+            'name' => 'delete_categorias',
+            'display_name' => 'Eliminar categorias'
+        ]);
 
         //
         //Permisos Paises

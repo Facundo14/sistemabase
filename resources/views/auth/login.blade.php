@@ -39,7 +39,7 @@
         <input type="text" class="form-control {{ $errors->has('username') ? ' is-invalid' : '' }}" placeholder="Usuario" name="username" value="{{ old('username') }}" required autofocus style="text-transform:uppercase">
 
         @if ($errors->has('username'))
-            <span class="invalid-feedback" role="alert">
+            <span class="invalid-feedback" role="alert" style="color:red;">
                 <strong>{{ $errors->first('username') }}</strong>
             </span>
         @endif
@@ -49,7 +49,7 @@
       <div class="form-group {{ $errors->has('password') ? ' is-invalid' : '' }} has-feedback">
         <input type="password" class="form-control" placeholder="Contraseña" name="password" required>
         @if ($errors->has('password'))
-            <span class="invalid-feedback" role="alert">
+            <span class="invalid-feedback" role="alert" style="color:red;">
                 <strong>{{ $errors->first('password') }}</strong>
             </span>
         @endif

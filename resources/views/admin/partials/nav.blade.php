@@ -7,7 +7,7 @@
           </a>
         </li>
           @can('view_parametros_usuario')
-          <li class="treeview {{ setActiveRoute(['admin.empresas.index', 'admin.empresas.create','admin.users.index', 'admin.users.create','admin.roles.index', 'admin.roles.edit','admin.permissions.index', 'admin.permissions.edit']) }}">
+          <li class="treeview {{ setActiveRoute(['admin.empresas.index', 'admin.empresas.create','admin.users.index', 'admin.users.create','admin.roles.index', 'admin.roles.edit','admin.permissions.index', 'admin.permissions.edit','admin.paises.index', 'admin.paises.create', 'admin.provincias.index', 'admin.provincias.create']) }}">
             <a href="#"><i class="fa fa-cog"></i> <span>Parámetros</span>
               <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
@@ -26,16 +26,6 @@
                 </a>
               </li>
               @endcan
-              @can('view', new App\Pais)
-              <li class="treeview {{ setActiveRoute(['admin.paises.index', 'admin.paises.create']) }}">
-                <a href="{{ route('admin.paises.index') }}"><i class="fa fa-building-o"></i> <span>Pais</span>
-                </a>
-              </li>
-              @endcan
-             <li class="treeview">
-                <a href="{{ route('admin.empresas.timelineshow') }}"><i class="fa fa-building-o"></i> <span>Linea de tiempo</span>
-              </a>
-              </li>
               @can('view', new App\User)
                 <li class="treeview {{ setActiveRoute(['admin.users.index', 'admin.users.create','admin.roles.index', 'admin.roles.edit','admin.permissions.index', 'admin.permissions.edit']) }}">
                   <a href="#"><i class="fa fa-users"></i> <span>Usuarios</span>

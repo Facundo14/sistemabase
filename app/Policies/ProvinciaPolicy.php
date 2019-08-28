@@ -27,7 +27,7 @@ class ProvinciaPolicy
      */
     public function view(User $user, Provincia $provincia)
     {
-        return $user->HasRole('Admin') || $user->hasPermissionTo('view_provincias');
+        return $user->hasRole('Admin') || $user->hasPermissionTo('view_provincias');
     }
 
     /**
@@ -38,7 +38,7 @@ class ProvinciaPolicy
      */
     public function create(User $user)
     {
-       return $user->HasRole('Admin') || $user->hasPermissionTo('view_provincias');
+       return $user->hasRole('Admin') || $user->hasPermissionTo('view_provincias');
     }
 
     /**
@@ -50,7 +50,7 @@ class ProvinciaPolicy
      */
     public function update(User $user, Provincia $provincia)
     {
-        return $user->HasRole('Admin') || $user->hasPermissionTo('view_provincias');
+        return $user->hasRole('Admin') || $user->hasPermissionTo('view_provincias');
     }
 
     /**
@@ -62,6 +62,6 @@ class ProvinciaPolicy
      */
     public function delete(User $user, Provincia $provincia)
     {
-        return $user->HasRole('Admin') || $user->hasPermissionTo('view_provincias');
+        return $user->hasRole('Admin') || $user->hasPermissionTo('view_provincias');
     }
 }

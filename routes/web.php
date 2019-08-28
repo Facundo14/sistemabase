@@ -41,14 +41,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
    //Empresa rutas
    Route::resource('empresas', 'EmpresaController', ['except' => 'show', 'as' => 'admin']);
    //Route::get('empresas/timeline', 'EmpresaController@timeline')->name('admin.empresas.timeline');
-   Route::get('empresas/timelineshow', 'EmpresaController@timelineshow')->name('admin.empresas.timelineshow');
+   //Route::get('empresas/timelineshow', 'EmpresaController@timelineshow')->name('admin.empresas.timelineshow');
 
    //Paises rutas
    Route::resource('paises', 'PaisController', ['except' => 'show', 'as' => 'admin']);
 
-   
+
 
 });
+
+    //Paises rutas
+    Route::resource('categorias', 'CategoriaController', ['middleware' => 'auth','except' => 'show']);
     // Authentication Routes...
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Auth\LoginController@login');

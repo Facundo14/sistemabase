@@ -27,7 +27,7 @@ class PaisPolicy
      */
     public function view(User $user, Pais $pais)
     {
-        return $user->HasRole('Admin') || $user->hasPermissionTo('view_paises');
+        return $user->hasRole('Admin') || $user->hasPermissionTo('view_paises');
     }
 
     /**
@@ -38,7 +38,7 @@ class PaisPolicy
      */
     public function create(User $user)
     {
-        return $user->HasRole('Admin') || $user->hasPermissionTo('create_paises');
+        return $user->hasRole('Admin') || $user->hasPermissionTo('create_paises');
     }
 
     /**
@@ -50,7 +50,7 @@ class PaisPolicy
      */
     public function update(User $user, Pais $pais)
     {
-        return $user->HasRole('Admin') || $user->hasPermissionTo('edit_paises');
+        return $user->hasRole('Admin') || $user->hasPermissionTo('edit_paises');
     }
 
     /**
@@ -62,6 +62,6 @@ class PaisPolicy
      */
     public function delete(User $user, Pais $pais)
     {
-        return $user->HasRole('Admin') || $user->hasPermissionTo('delete_paises');
+        return $user->hasRole('Admin') || $user->hasPermissionTo('delete_paises');
     }
 }

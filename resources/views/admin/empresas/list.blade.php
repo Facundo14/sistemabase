@@ -1,4 +1,4 @@
- <table id="empresa-table" class="table table-bordered table-striped">
+ <table id="id-table" class="table table-bordered table-striped">
     <thead>
     <tr>
       <th>#</th>

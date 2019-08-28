@@ -156,7 +156,6 @@ desired effect
     <section class="content-header">
      @yield('header')
     </section>
-
     <!-- Main content -->
     <section class="content">
 
@@ -189,7 +188,7 @@ desired effect
   <footer class="main-footer">
 
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2019 <a href="#">GMT.IT</a>.</strong> Derechos reservados.
+    <strong>Copyright &copy; 2019 <a href="#">PrestiGio Soft</a>.</strong> Derechos reservados.
   </footer>
 </div>
 <!-- ./wrapper -->

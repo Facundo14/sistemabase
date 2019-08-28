@@ -1,12 +1,12 @@
 @extends('admin.layout')
 @section('header')
 	 <h1>
-        Empresas
+        Categorias
         <small>Listado</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="{{ route('inicio') }}"><i class="fa fa-dashboard"></i> Inicio</a></li>
-        <li class="active">Empresas</li>
+        <li class="active">Categorias</li>
       </ol>
 @stop
 @section('contenido')
@@ -19,10 +19,10 @@
 
                         <div class='box box-solid box-primary'>
                             <div class="box-header">
-							  <h3 class="box-title">Listado de empresas</h3>
+							  <h3 class="box-title">Listado de categorias</h3>
 							</div>
                             <div class='box-body pad'>
-								@include('admin.empresas.list')
+								@include('categorias.list')
                             </div>
                         </div><!-- /.box -->
                     </div><!-- /.col (RIGHT) -->

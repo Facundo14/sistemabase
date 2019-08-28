@@ -14,5 +14,5 @@
 
 <div class="form-group">
 	<label>Permisos</label>
-	@include('admin.permisos.checkboxes', ['model' => $role])
+	@include('admin.permissions.checkboxes', ['model' => $role])
 </div>
